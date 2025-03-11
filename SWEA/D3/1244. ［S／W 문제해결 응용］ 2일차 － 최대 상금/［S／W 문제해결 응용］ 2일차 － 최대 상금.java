@@ -46,18 +46,18 @@ public class Solution {
 	
 	private static void dfs(int cnt) {
 		
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < N; i++)
+			sb.append(nums[i]);
+		
 		if (cnt == change) {
-			int result = 0;
-			for (int i = 0; i < N; i++) {
-				result *= 10;
-				result += nums[i];
-			}
+			int result = Integer.parseInt(sb.toString());
 			if (maxMoney < result) maxMoney = result;
 			return;
 		}
 		
 		// pruning
-		String key = Arrays.toString(nums) + " " + cnt;
+		String key = sb + " " + cnt;
 		if (visited.contains(key)) {
 			return;
 		}
