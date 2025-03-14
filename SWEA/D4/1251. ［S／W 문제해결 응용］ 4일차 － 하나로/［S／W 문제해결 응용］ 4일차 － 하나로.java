@@ -9,9 +9,7 @@ public class Solution {
 	private static double E;
 	private static int[] X;
 	private static int[] Y;
-	private static boolean[] visited;
 	private static int[] parents;
-	private static long[][] dist;
 	
 	private static class Edge implements Comparable<Edge> {
 
@@ -73,7 +71,6 @@ public class Solution {
 			N = Integer.parseInt(br.readLine());
 			X = new int[N];
 			Y = new int[N];
-			visited = new boolean[N];
 			parents = new int[N];
 			
 			/* 1. Get positions */
