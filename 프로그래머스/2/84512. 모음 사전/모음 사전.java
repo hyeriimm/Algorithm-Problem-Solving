@@ -4,16 +4,25 @@ import java.io.*;
 class Solution {
     
     char[] vowel = { 'A', 'E', 'I', 'O', 'U' };
-    List<String> list;
+    String word;
+    int seq;
+    int answer;
     
     void permutation(int cnt, String str) {
         
+        if (answer > 0) return;
+        
+        if (str.equals(word)) {
+            answer = seq + 1;
+            return;
+        }
+        
         if (cnt == 5) {
-            list.add(str);
+            seq++;
             return;
         }
         else if (cnt != 0) {
-            list.add(str);
+            seq++;
         }
         
         for (int i = 0; i < 5; i++) {
@@ -23,14 +32,10 @@ class Solution {
     
     public int solution(String word) {
 
-        list = new ArrayList<>();
+        this.word = word;
         
         permutation(0, "");
         
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).equals(word)) return i + 1;
-        }
-        
-        return 0;
+        return answer;
     }
 }
